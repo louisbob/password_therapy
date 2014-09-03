@@ -5,3 +5,4 @@ bin/*
 
 #Ignore personnal QT Creator settings
 *.pro.user
+
