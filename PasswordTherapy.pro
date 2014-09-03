@@ -1,4 +1,6 @@
+INCLUDEPATH += $$PWD/src
+
 QT += widgets
 
 SOURCES += \
-    main.cpp
+    src/main.cpp
