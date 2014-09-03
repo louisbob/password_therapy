@@ -1,0 +1,3 @@
+[submodule "lib/kalven_sha2"]
+	path = lib/kalven_sha2
+	url = https://github.com/kalven/sha-2.git
