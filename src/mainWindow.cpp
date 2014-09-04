@@ -3,7 +3,8 @@
 MainWindow::MainWindow() : QWidget()
 {
     //Window properties
-    setFixedSize(300, 150);
+
+//    ->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
 
     lbl_masterPwd = new QLabel();
     lbl_masterPwd->setText("Master password");
@@ -12,7 +13,7 @@ MainWindow::MainWindow() : QWidget()
     inp_masterPwd = new QLineEdit();
     inp_myPwd = new QLineEdit();
 
-    btn_process = new QPushButton("Process", this);
+    btn_process = new QPushButton("Process1", this);
     btn_process->setCursor(Qt::PointingHandCursor);
 
     lbl_txtSHA2 = new QLabel();
@@ -40,4 +41,18 @@ MainWindow::MainWindow() : QWidget()
     layout->addWidget(lbl_Cipher, 4,1);
 
     setLayout(layout);
+
+    //Connect button
+    QObject::connect(btn_process, SIGNAL(clicked()), this, SLOT(processAlgorithm()));
+
 }
+
+void MainWindow::processAlgorithm() {
+
+    std::string mPwd = inp_masterPwd->text().toStdString();
+    std::string mHash = QRGen.genHash(mPwd);
+    mHash = QRGen.binToHex(mHash);
+    lbl_SHA2->setText(QString::fromUtf8(mHash.c_str()));
+}
+
+
