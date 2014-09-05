@@ -26,6 +26,10 @@ MainWindow::MainWindow() : QWidget()
     lbl_Cipher = new QLabel();
     lbl_Cipher->setText("(N/A)");
 
+    qr_code = new QRWidget();
+    qr_code->setQRData(QString::fromLocal8Bit("monZOB"));
+
+
     //Layout properties
     layout = new QGridLayout;
     layout->addWidget(lbl_masterPwd, 0,0);
@@ -39,6 +43,7 @@ MainWindow::MainWindow() : QWidget()
 
     layout->addWidget(lbl_txtCipher, 4,0);
     layout->addWidget(lbl_Cipher, 4,1);
+    layout->addWidget(qr_code, 5,1);
 
     setLayout(layout);
 

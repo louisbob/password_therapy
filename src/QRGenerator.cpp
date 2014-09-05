@@ -5,7 +5,7 @@
 #include <crypto++/aes.h>
 #include <crypto++/modes.h>
 #include <crypto++/filters.h>
-
+#include <qrencode.h>
 
 QRGenerator::QRGenerator()  {
 
@@ -78,15 +78,18 @@ void QRGenerator::encryptAES() {
        stfEncryptor.Put( reinterpret_cast<const unsigned char*>( plaintext.c_str() ), plaintext.length() + 1 );
        stfEncryptor.MessageEnd();
 
-       //
-          // Dump Cipher Text
-          //
-          std::cout << "Cipher Text (" << ciphertext.size() << " bytes)" << std::endl;
+      //
+      // Dump Cipher Text
+      //
+      std::cout << "Cipher Text (" << ciphertext.size() << " bytes)" << std::endl;
 
-          for( int i = 0; i < ciphertext.size(); i++ ) {
+      for( int i = 0; i < ciphertext.size(); i++ ) {
 
-              std::cout << "0x" << std::hex << (0xFF & static_cast<byte>(ciphertext[i])) << " ";
-          }
+          std::cout << "0x" << std::hex << (0xFF & static_cast<byte>(ciphertext[i])) << " ";
+      }
 
-          std::cout << std::endl << std::endl;
+      std::cout << std::endl << std::endl;
+
+      QRcode *qr=QRcode_encodeString("my string", 1, QR_ECLEVEL_L, QR_MODE_8,0);
+
 }

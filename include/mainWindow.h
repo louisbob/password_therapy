@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include "include/QRGenerator.h"
+#include "include/QRWidget.hpp"
 
 #include <QApplication>
 #include <QWidget>
@@ -9,6 +10,7 @@
 #include <QGridLayout>
 #include <QLabel>
 #include <QLineEdit>
+
 
 class MainWindow : public QWidget
 {
@@ -37,7 +39,10 @@ public slots:
     QLabel *lbl_txtCipher;
     QLabel *lbl_Cipher;
 
+    QRWidget *qr_code;
+
     QRGenerator QRGen;
+
 };
 
 #endif

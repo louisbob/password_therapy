@@ -6,12 +6,16 @@ SOURCES += \
     src/main.cpp \
     src/mainWindow.cpp \
     src/QRGenerator.cpp \
-    src/sha512.cpp
+    src/sha512.cpp \
+    src/QRWidget.cpp
 
 HEADERS += \
     include/mainWindow.h \
     include/QRGenerator.h \
-    include/sha512.h
+    include/sha512.h \
+    include/QRWidget.hpp
+
+LIBS += -lqrencode
 
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../../usr/lib/release/ -lcrypto++
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../../usr/lib/debug/ -lcrypto++
