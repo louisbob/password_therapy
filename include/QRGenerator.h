@@ -10,6 +10,8 @@ public:
     std::string genHash(std::string MPwd);
     std::string binToHex(std::string toConvert);
 
+    void encryptAES();
+
 private:
 
 };

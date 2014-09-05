@@ -52,7 +52,9 @@ void MainWindow::processAlgorithm() {
     std::string mPwd = inp_masterPwd->text().toStdString();
     std::string mHash = QRGen.genHash(mPwd);
     mHash = QRGen.binToHex(mHash);
-    lbl_SHA2->setText(QString::fromUtf8(mHash.c_str()));
+    QRGen.encryptAES();
+
+    lbl_SHA2->setText(QString::fromStdString(mHash));
 }
 
 
